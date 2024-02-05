@@ -1,0 +1,2 @@
+# Ignore directories named "runs" and their subdirectories
+**/runs/

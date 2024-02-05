@@ -1,0 +1,57 @@
+environment:
+  randomize_state_init: true
+  det_random_test: true
+  random_test_intervall: 30
+  randomize_position_init: true
+  retrain_agent: true
+  num_steps: 3000000
+  max_steps: 500
+  time_steps: 1
+  max_line_length: 3000
+  n_vehicles: 4
+  start: MLUK
+  stop: STWE
+  targets:
+  - 323
+  - 1028
+  - 1302
+  - 1632
+  schedule_factor: 0.2
+  schedule:
+  - 120
+  - 120
+  - 120
+  - 60
+rewards:
+  positional:
+    use_stopZone: true
+    use_quadratic_rewards: true
+    stop_zone:
+      value: 20
+    value: 10000
+  velocity:
+    speed_reward: 4
+    speeding_cost: 250
+    slow_cost: 25
+  schedule:
+    use_sparse: false
+    use_step: true
+    sparse: {}
+    step:
+      value: 0.5
+  energy:
+    use_sparse: false
+    use_step: true
+    sparse: null
+    step:
+      power:
+        use_track_gradient: true
+        value: 5
+    recup_factor: 0
+settings:
+  vehicle:
+    auxillary_power: 0
+    passenger_load: 0.5
+    max_speed: 70
+  conditions:
+    wind_speed: 0

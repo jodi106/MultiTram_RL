@@ -1,0 +1,79 @@
+environment:
+  randomize_state_init: true
+  det_random_test: True
+  random_test_intervall: 30
+  randomize_position_init: true
+  retrain_agent: false
+  num_steps: 25000000
+  max_steps: 500
+  time_steps: 1
+  max_line_length: 3000
+  n_vehicles: 4
+  start: MULT
+  stop: UNIS
+  targets:
+  - 693
+  - 1925
+  schedule_factor: 0.1
+  schedule:
+  - 120
+  - 120
+rewards:
+  positional:
+    use_stopZone: True
+    use_quadratic_rewards: True
+    stop_zone:
+      value_range:
+        - 20
+      value_steps: 1
+    value_range:
+      - 10000
+    value_steps: 1
+  velocity:
+    speed_reward:
+      value_range: 
+        - 4
+      value_steps: 1
+    speeding_cost:
+      value_range:
+        - 250
+      value_steps: 1
+    slow_cost: 
+      value_range:
+        - 25
+      value_steps: 1
+  schedule:
+    use_sparse: False
+    use_step: True
+    sparse:
+      value_range: 
+        - 0.1
+      value_steps: 1
+    step:
+      value_range:
+        - 0.5
+      value_steps: 1
+  energy:
+    use_sparse: False
+    use_step: True
+    sparse: #FIXME: Not Implemented
+    step:
+      power:
+        use_track_gradient: True
+        value_range:
+          - 5
+        value_steps: 1
+    recup_factor:
+        value_range:
+          - 1
+          - 0.5
+          - 0.9
+          - 0
+        value_steps: 4
+settings:
+  vehicle:
+    auxillary_power: 0
+    passenger_load: 0.5
+    max_speed: 70
+  conditions:
+    wind_speed: 0
