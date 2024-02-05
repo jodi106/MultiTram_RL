@@ -1,6 +1,6 @@
 # Tram_RL
 
-OpenAI based RL-Environment to train PPO agents to learn how to energy efficiently control multiple tramways. This repository includes the follwoing:
+OpenAI gym based RL-Environment to train PPO agents to learn how to energy efficiently control multiple tramways. This repository includes the follwoing:
 - MultiTram environment with multi-discrete action space MultiDiscrete([3]*n_trams)
 - Modified cleanRL PPO agent to account for multi-discrete action space.
 - Experiment Runner to run multiple PPO training runs in batches.
@@ -11,12 +11,12 @@ OpenAI based RL-Environment to train PPO agents to learn how to energy efficient
 - Python Version: 3.10.13
 - Install requirements.txt (pip install -r requirements.txt)
 
-- To install cuda either use pip or conda
+- (OPTIONAL) To install cuda either use pip or conda
     - pip install torch==1.12.1+cu116 torchvision==0.13.1+cu116 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu116
     - conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge
 
 ## Single runs
-- Modify config.yaml in src->agents according to requirements
+- Modify config.yaml in "/src/agents" according to requirements
 - cd to "/src/agents"
 - Run "python ppo_MT.py --help" for args
 - To retrain an agent use "--retrain" and store agent as "agent1.pt" in "src/agents/utils/agents/MultiTram"
